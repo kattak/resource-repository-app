@@ -1,28 +1,58 @@
 <h2>Search by Tag</h2>
 
+<!-- q is what you type into the search bar  -->
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:q, "Search by Tag:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
 <% end %>
 
+<h3>A simple onclick AJAX example:</h3>
+  <div>
+          <a href="#" onclick="this.style.backgroundColor='#009900';this.style.color='#FFFFFF';">Paint it green</a>
+        </div>
+
+<h3>A slightly more complicated AJAX example </h3>
+  <div>
+    <li>Background color onclick works!</li>
+    <li>console.log onclick works!</li>
+    <li>className onclick works!</li>
+
+            <i class="fa fa-star-o" aria-hidden="true" onclick="console.log('twinkle twinkle'); this.style.backgroundColor='#ffff00'; this.className ='fa fa-star';"></i>
+  </div>
+
+  <h3>A slightly more complicated AJAX example </h3>
+    <div>
+
+              <i class='fa fa-star-o fa-5x' aria-hidden="true" onclick="$(this).toggleClass('fa fa-star fa-5x');"></i>
+
+              <a href="#" onclick="debugger; alert('this is inline JS');return false;">Click</a>
+    </div>
+
+
+
+
+
+
 <h2>Resources</h2>
 <div id='all-resources'>
   <ul class="list-unstyled">
     <% if @q %>
+    <!-- show filtered resources based on user's search q  -->
     <h3><%=@q.downcase%></h3>
       <% @tags.each do |tag| %>
         <% if tag.name == @q.downcase %>
             <% tag.resources.each do |resource| %>
-              <li><i class="fa fa-star-o" aria-hidden="true"></i>
+              <li><i class="fa fa-star" aria-hidden="true"></i>
 <%= link_to resource.title, resource.url %> </li>
             <% end %>
         <% end %>
       <% end %>
 
     <% else %>
+    <!-- show all resources if user hasn't entered q (a search query) -->
       <% @resources.each do |resource| %>
-        <li><i class="fa fa-star-o" aria-hidden="true"></i>
+        <li><i class="fa fa-star" aria-hidden="true" onclick="this.class ='fa fa-star-o' "></i>
 <%= link_to resource.title, resource.url %> </li>
       <% end %>
     <% end %>
