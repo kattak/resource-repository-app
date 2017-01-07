@@ -1,5 +1,8 @@
 # Resource Repository App
 
+
+Katrina's fork to try AJAX
+
 Currently in Development!
 
 ______________________________________
