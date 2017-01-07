@@ -23,12 +23,27 @@
 
   <h3>A slightly more complicated AJAX example </h3>
     <div>
-
-              <i class='fa fa-star-o fa-5x' aria-hidden="true" onclick="$(this).toggleClass('fa fa-star fa-5x');"></i>
+      <li>toggleClass will add input class to existing classes</li>
+              <i class='fa fa-star-o' aria-hidden="true" onclick="$(this).toggleClass('fa-star');"></i>
 
               <a href="#" onclick="debugger; alert('this is inline JS');return false;">Click</a>
     </div>
 
+    <h3>A slightly more complicated AJAX example </h3>
+      <div>
+        <li>toggleClass can accept multiple classes, will cycle through them</li>
+                <i class='fa fa-star-o' aria-hidden="true" onclick="$(this).toggleClass('fa-star fa-star-o');"></i>
+
+        <li>This is how it works with multiple classes.</li>
+        <li>'fa fa-5x' are keep constant</li>
+        <li>'fa-star fa-star-o' are toggled</li>
+                <i class='fa fa-5x fa-star-o' aria-hidden="true" onclick="$(this).toggleClass('fa-star fa-star-o');"></i>
+
+                <li>When would you put in one class into toggleClass? Happy with the default.  Switching between having a class and not having a class.</li>
+
+                <li>When would you want to put in two classes into toggleClass?  Switch between two classes.</li>
+                
+      </div>
 
 
 
