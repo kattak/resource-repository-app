@@ -1,7 +1,24 @@
 module SessionsHelper
+  #Tried to print this out with SessionsHelper.hi, ["hi"], [:hi], [":hi"] (none work)
+  def hi
+    return "hi"
+  end
+
+
+
   def login(user)
     session[:user_id] = user.id
   end
+
+
+
+#   irb(main):043:0> SessionsController.hi
+# NoMethodError: undefined method `hi' for SessionsController:Class
+#does not work
+
+# irb(main):044:0> SessionsController.instance_methods
+# => [:new, :create, :destroy, :login, :hi, :current_user, :logout,...
+
 
   def logout
     session.clear
