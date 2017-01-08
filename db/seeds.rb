@@ -32,7 +32,7 @@ end
 resources = 5.times.map do
   teacher_users.each do |teacher|
     teacher.resources.create!(title: Faker::Lorem.word,
-      creator_id: teacher.id)
+      creator_id: teacher.id, url: "http://www.google.com")
   end
 end
 
@@ -42,13 +42,13 @@ Tag.create(name:"javascript")
 Tag.create(name: "sql")
 Tag.create(name: "python")
 
-#Adding a random tag to all resources 
+#Adding a random tag to all resources
 tagged_resources = Resource.all.each do |resource|
   num = Tag.all.sample.id
   ResourceTag.create!(resource_id: resource.id, tag_id: num)
 end
 
-
+#20 random users "starring favorite"
 20.times do
   liker = User.all.sample.id
   resource_num = Resource.all.sample.id
