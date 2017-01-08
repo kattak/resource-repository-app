@@ -42,9 +42,13 @@
                 <li>When would you put in one class into toggleClass? Happy with the default.  Switching between having a class and not having a class.</li>
 
                 <li>When would you want to put in two classes into toggleClass?  Switch between two classes.</li>
-                
+
       </div>
 
+      <h3>Actually trying AJAX now</h3>
+      <div>
+
+      </div>
 
 
 
@@ -67,7 +71,7 @@
     <% else %>
     <!-- show all resources if user hasn't entered q (a search query) -->
       <% @resources.each do |resource| %>
-        <li><i class="fa fa-star" aria-hidden="true" onclick="this.class ='fa fa-star-o' "></i>
+        <li><i id="<%=resource.id%>" class="fa fa-star-o" aria-hidden="true" onclick="this.class ='fa fa-star-o' "></i>
 <%= link_to resource.title, resource.url %> </li>
       <% end %>
     <% end %>

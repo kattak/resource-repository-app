@@ -7,24 +7,28 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+#Delete all
 User.delete_all
 Resource.delete_all
 ResourceTag.delete_all
 Tag.delete_all
 Favorite.delete_all
 
+#Create students
 student_users = 20.times.map do
   User.create!(email: Faker::Internet.email,
     password_hash: 'password',
     role: 'student')
 end
 
+#Create teachers
 teacher_users = 10.times.map do
   User.create!(email: Faker::Internet.email,
     password_hash: 'password',
     role: 'teacher')
 end
 
+#Teachers create resources
 resources = 5.times.map do
   teacher_users.each do |teacher|
     teacher.resources.create!(title: Faker::Lorem.word,
@@ -32,19 +36,21 @@ resources = 5.times.map do
   end
 end
 
+#Create tags
 Tag.create(name: "ruby")
 Tag.create(name:"javascript")
 Tag.create(name: "sql")
 Tag.create(name: "python")
 
+#Adding a random tag to all resources 
 tagged_resources = Resource.all.each do |resource|
   num = Tag.all.sample.id
   ResourceTag.create!(resource_id: resource.id, tag_id: num)
 end
 
 
-20.times do 
+20.times do
   liker = User.all.sample.id
   resource_num = Resource.all.sample.id
-  Favorite.create(favoriter_id: liker, resource_id: resource_num)
+  Favorite.create(user_id: liker, resource_id: resource_num)
 end

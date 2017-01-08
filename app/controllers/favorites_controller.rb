@@ -18,9 +18,11 @@ class FavoritesController < ApplicationController
        format.json { render json: @favorite.errors, status: :unprocessable_entity }
      end
    end
+  end
 
   private
   def favorite_params
-    params.require(:favorite).permit(:favoriter_id, :resource_id)
+    params.require(:favorite).permit(:user_id, :resource_id)
   end
+
 end

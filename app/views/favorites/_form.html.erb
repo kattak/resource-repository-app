@@ -12,13 +12,13 @@
 <% end %>
 
 <div class='field'>
-  <%= f.label :favoriter_id %>
-  <%= f.hidden_field :favoriter_id, { :value => current_user.id } %>
+  <%= f.label :user_id %>
+  <%= f.hidden_field :user_id, { :value => current_user.id } %>
 </div>
 
 <div class='field'>
   <%= f.label :resource_id %>
-  <%= f.hidden_field :resource_id, { :value => resource.id } %>
+  <%= f.hidden_field :resource_id, { :value => @favorite.resource.id } %>
 </div>
 
 <div class="actions">
