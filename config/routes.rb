@@ -9,15 +9,16 @@ Rails.application.routes.draw do
   resources :resources
     put :favorite, on: :member
 
-  #I don't know why we would want this.
-  ##Leaving it for now.
-  resources :favorites
-
   #tags
   get '/tags/new', to: 'tags#new'
   post '/tags', to: 'tags#create'
 
-  #favorites are their own resource
+
+  #I don't know why we would want this.
+  ##Leaving it for now.
+  resources :favorites
+
+  #favorites are their own resource - these are extra
   get '/favorites/new', to: 'favorites#show'
   post '/favorites', to: 'favorites#create'
 
