@@ -17,7 +17,7 @@ module SessionsHelper
   # # Log in from the console to create a session
   # app.post '/login', {"authenticity_token"=>"5aMTqep2Tp35PP7G+v50AjNdiI2PKHmWeF+Lv3ZflQk=",  "user[login]"=>'chloe', 'user[password]'=>'test'}
 
-#hi function to test access to helper methods in rails console 
+#hi function to test access to helper methods in rails console
   def hi
     return "hi"
   end
@@ -44,5 +44,7 @@ module SessionsHelper
       end
     end
   end
+  # possible cleaner rewrite:
+  # @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
 
 end

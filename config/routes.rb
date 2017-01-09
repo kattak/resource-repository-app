@@ -2,12 +2,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 #member route to display a user's favorites
-  resources :users
+  resources :users do
     put :favorites, on: :member
+  end
 
   #member route to favorite and unfavorite resources
-  resources :resources
+  resources :resources do
     put :favorite, on: :member
+  end
+  
 
   #tags
   get '/tags/new', to: 'tags#new'

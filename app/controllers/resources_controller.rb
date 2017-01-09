@@ -7,6 +7,22 @@ class ResourcesController < ApplicationController
     @resources = Resource.joins("LEFT JOIN favorites ON resources.id = favorites.resource_id").group("resources.id").order("count(favorites.resource_id) desc")
   end
 
+  #method for user to favorite or unfavorite a resource
+  def favorite
+    @type = params[:favorite_type]
+    @resource = Resource.find(params[:resource_id])
+
+    if @type == "favorite"
+      ##OHHH, can access 
+      current_user.favorites << @resource
+
+
+      #ohhh star format accesses helper method
+
+    elsif @type == "unfavorite"
+    end
+  end
+
   def create
     @resource = Resource.new(resource_params)
     @resource.creator_id = current_user.id
